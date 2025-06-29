@@ -16,8 +16,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.myproject.ui.theme.MyProjectTheme
-import androidx.compose.foundation.layout.Box
 import androidx.compose.material3.Button
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Arrangement
+
 
 
 class MainActivity : ComponentActivity() {
@@ -36,17 +40,28 @@ class MainActivity : ComponentActivity() {
 fun GreetingWithButton() {
     val context = LocalContext.current
     Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-        Box(
-            contentAlignment = Alignment.Center,
+        Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(innerPadding)
+                .padding(innerPadding),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center
         ) {
             Button(onClick = {
                 Toast.makeText(context, "xin chào", Toast.LENGTH_SHORT).show()
             }) {
                 Text(text = "Nhấn vào đây")
             }
+
+            Spacer(modifier = Modifier.height(16.dp)) 
+
+            Button(onClick = {
+                Toast.makeText(context, "tạm biệt", Toast.LENGTH_SHORT).show()
+            }) {
+                Text(text = "Nút tạm biệt")
+            }
+
+
         }
     }
 }
